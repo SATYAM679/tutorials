@@ -1,6 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const usersRoutes = require("./routes/users");
+import express from "express";
+import bodyParser from "body-parser";
+import usersRoutes from "./routes/users";
 
 const app = express();
 const PORT = 5000;
@@ -8,12 +8,11 @@ const PORT = 5000;
 app.use(bodyParser.json());
 
 // ALL ROUTES
+app.use("/users", usersRoutes);
 
 app.get("/", (req, res) => res.send("HOME PAGE"));
 
-app.get("/users", usersRoutes);
-
-app.post("/users", usersRoutes);
+app.get("*", (req, res) => res.send("ERROR: 404, PAGE NOT FOUND!"));
 
 app.listen(PORT, () =>
   console.log(`Server running on port http://127.0.0.1:${PORT}`)
