@@ -1,0 +1,10 @@
+->> Search Operators:
+site:
+inurl:
+intext: 
+intitle:
+filetype:
+
+
+->> Google Dork Database link:
+https://www.exploit-db.com/google-hacking-database
