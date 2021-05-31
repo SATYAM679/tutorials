@@ -13,6 +13,8 @@ app.get("/", (req, res) => res.send("HOME PAGE"));
 
 app.get("/users", usersRoutes);
 
+app.post("/users", usersRoutes);
+
 app.listen(PORT, () =>
-  console.log(`Server running on port http://localhost:${PORT}`)
+  console.log(`Server running on port http://127.0.0.1:${PORT}`)
 );

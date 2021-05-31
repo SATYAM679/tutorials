@@ -24,4 +24,11 @@ router.get("/users", (req, res) => {
   res.send(users);
 });
 
+router.post("/users", (req, res) => {
+  const user = req.body;
+  users.push(user);
+  console.log(user);
+  res.send(`User ${user.firstName} is added`);
+});
+
 module.exports = router;
