@@ -14,14 +14,6 @@ app.get("/", (req, res) => res.send("HOME PAGE"));
 
 app.get("*", (req, res) => res.send("ERROR: 404, PAGE NOT FOUND!"));
 
-// app.get("/users/:id", usersRoutes);
-
-// app.delete("/users/:id", usersRoutes);
-
-// app.patch("/users/:id", usersRoutes);
-
-// app.post("/users", usersRoutes);
-
 app.listen(PORT, () =>
   console.log(`Server running on port http://127.0.0.1:${PORT}`)
 );

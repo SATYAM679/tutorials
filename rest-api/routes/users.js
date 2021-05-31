@@ -7,15 +7,15 @@ const router = express.Router();
 // lastName: "Grimes",
 // role: "Leader",
 // zombieKillCount: 1010,
-// humanKillCount: 25,
-// id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+// humanKillCount: 25
 let users = [];
 
-// /users get route
+// GET:/users route
 router.get("/", (req, res) => {
   res.send(users);
 });
 
+// POST:/users route
 router.post("/", (req, res) => {
   const user = req.body;
   const id = uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
@@ -24,21 +24,21 @@ router.post("/", (req, res) => {
   res.send(`User ${newUser.firstName} is added`);
 });
 
-// /users/2
+// GET:/users/2 [id 2 user will display]
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   const foundUser = users.find((user) => user.id === id);
   res.send(foundUser);
 });
 
-// /users/2
-// delete is not working at the moment
+// DELETE: /users/2 [id 2 user will be deleted]
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
   users = users.filter((user) => user.id !== id);
   res.send(`user with ${id} is deleted from db.`);
 });
 
+// PATCH: /users/2 [id 2 user data will be updated]
 router.patch("/:id", (req, res) => {
   const { id } = req.params;
   let { firstName, lastName, role, zombieKillCount, humanKillCount } = req.body;
